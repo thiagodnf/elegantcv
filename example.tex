@@ -1,0 +1,40 @@
+\documentclass[10pt]{article}
+
+\usepackage[utf8]{inputenc}      % Acentuação direta
+\usepackage[T1]{fontenc}         % Codificação da fonte em 8 bits
+\usepackage{mathptmx}            % Usa a fonte Times New Roman
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{multirow}
+\usepackage{lipsum}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{titlesec}
+\usepackage{lib/elegantcv}
+
+% Personal Informations
+\title{Curriculum Vitae}
+\author{Your Name}
+\address{Your Address}
+\neighborhood{Your Neighborhood}
+\city{Your city}
+\country{Your Country}
+\mobile{Your Mobile}
+\site{Your Site}
+\email{Your Email}
+\photo{fig/profile}
+
+\begin{document}
+
+\maketitle
+
+\input{sections/experiences}
+\input{sections/education}
+\input{sections/technologies}
+\input{sections/languages}
+\input{sections/complementary-activities}
+\input{sections/conferences}
+
+\end{document}

@@ -1,0 +1,85 @@
+\geometry{
+	a4paper,
+	left=2.5cm,
+	right=2.5cm,
+	top=2.5cm,
+	bottom=2.5cm,
+}
+
+\titleformat{\subsubsection}
+{\normalfont\normalsize}{\thesubsubsection}{1em}{}
+
+\titlespacing*{\subsection}
+{2cm}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\titlespacing*{\subsubsection}
+{2cm}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\newcommand{\cvsection}[1]{
+	%\noindent\rule{\textwidth}{0.4pt}
+	\section*{\textcolor{MidnightBlue}{\MakeUppercase{#1}}}
+}
+
+\newcommand{\cvsubsection}[1]{
+	\subsection*{\MakeUppercase{#1}}
+}
+
+\newcommand{\cvsubsubsection}[1]{
+	\subsubsection*{\MakeUppercase{#1}}
+}
+
+\newenvironment{content}{
+	\begin{adjustwidth}{2cm}{0pt}
+}{
+	\end{adjustwidth}
+}
+
+\newcommand{\address}{\def \@address}
+\newcommand{\city}{\def \@city}
+\newcommand{\country}{\def \@country}
+\newcommand{\mobile}{\def \@mobile}
+\newcommand{\site}{\def \@site}
+\newcommand{\email}{\def \@email}
+\newcommand{\photo}{\def \@photo}
+\newcommand{\neighborhood}{\def \@neighborhood}
+
+\renewcommand{\maketitle}[1]{
+	\begin{table}[H]
+		\begin{tabular*}{\textwidth}{@{}l@{\extracolsep\fill}r@{}}
+			\multirow{6}{*}{\includegraphics[scale=0.54]{\@photo}} &  \\
+			& \@address \\
+			& \@neighborhood, \@city, \@country \\
+			& \@mobile \\
+			& \@site \\
+			& \@email
+		\end{tabular*}
+	\end{table}
+	
+	\vspace{0.2cm}
+	
+	\noindent\fcolorbox{MidnightBlue}{MidnightBlue}{%
+		\begin{minipage}{0.978\textwidth}
+			\vspace{0.2cm}	
+			\textcolor{White}{
+				\Large{
+					\MakeUppercase{ \@author}
+				}
+			}
+			\vspace{0.2cm}	
+		\end{minipage}
+	}
+	
+	\hypersetup{
+		pdftitle={\@title},
+		pdfauthor={\@author},
+		pdfsubject={Powered by ElegantCV},
+		pdfkeywords={Access http://elegantcv.github.io},
+		bookmarksnumbered=true,     
+		bookmarksopen=true,         
+		bookmarksopenlevel=1,       
+		colorlinks=true,            
+		pdfstartview=Fit,           
+		pdfpagemode=UseOutlines,    % this is the option you were lookin for
+		pdfpagelayout=TwoPageRight
+	}
+}
